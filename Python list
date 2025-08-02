@@ -1,0 +1,25 @@
+python
+my_list = []
+python
+my_list = []
+my_list.append(10)
+my_list.append(20)
+my_list.append(30)
+my_list.append(40)
+Now `my_list` will contain: `[10, 20, 30, 40]`.
+python
+my_list.insert(1, 15)
+After inserting, `my_list` becomes: `[10, 15, 20, 30, 40]`.
+python
+my_list.extend([50, 60, 70])
+After extending, `my_list` becomes:  
+`[10, 15, 20, 30, 40, 50, 60, 70]`
+python
+my_list.pop()
+After this, `my_list` becomes:  
+`[10, 15, 20, 30, 40, 50, 60]`
+python
+index_of_30 = my_list.index(30)
+print(index_of_30)
+```
+(assuming `my_list = [10, 15, 20, 30, 40, 50, 60]`)
