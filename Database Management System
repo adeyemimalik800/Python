@@ -1,0 +1,58 @@
+Use Case: Clinic Booking System  
+This system manages patients, doctors, appointments, and treatments.
+
+*SQL Database Structure*
+
+*Tables & Relationships*
+- *Patients*: stores patient info  
+- *Doctors*: stores doctor info  
+- *Appointments*: links patients with doctors (Many-to-One for both sides)  
+- *Treatments*: describes treatment types  
+- *Appointment_Treatments*: handles Many-to-Many (appointments and treatments)
+
+*SQL Schema*
+sql
+-- PATIENTS TABLE
+CREATE TABLE Patients (
+    patient_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    phone VARCHAR(15) UNIQUE NOT NULL
+);
+
+-- DOCTORS TABLE
+CREATE TABLE Doctors (
+    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    specialty VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) UNIQUE NOT NULL
+);
+
+-- APPOINTMENTS TABLE
+CREATE TABLE Appointments (
+    appointment_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    doctor_id INT NOT NULL,
+    appointment_date DATETIME NOT NULL,
+    notes TEXT,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+
+FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id)
+);
+
+-- TREATMENTS TABLE
+CREATE TABLE Treatments (
+    treatment_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT
+);
+
+-- APPOINTMENT_TREATMENTS (Many-to-Many)
+CREATE TABLE Appointment_Treatments (
+    appointment_id INT,
+    treatment_id INT,
+    PRIMARY KEY (appointment_id, treatment_id),
+    FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id),
+    FOREIGN KEY (treatment_id) REFERENCES Treatments(treatment_id)
+);
