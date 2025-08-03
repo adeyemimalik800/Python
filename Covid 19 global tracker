@@ -1,0 +1,24 @@
+A data analysis and visualization project tracking COVID-19 cases, recoveries, and deaths globally using publicly available datasets.
+
+Project Objectives
+
+- Collect and clean up-to-date COVID-19 data from trusted sources  
+- Analyze trends in cases, recoveries, and fatalities by country and region  
+- Visualize data to better understand the pandemic’s progression worldwide  
+- Provide insights for policymakers and the general public
+
+Tools and Libraries Used
+
+- Python 3.x  
+- Pandas (data processing)  
+- Matplotlib & Seaborn (visualizations)  
+- Jupyter Notebook (interactive development)  
+- Requests / API clients (data fetching)  
+- Git & GitHub (version control and collaboration)
+
+Insights and Reflections
+- The project highlights how different countries experienced varied outbreak timelines and recovery rates.  
+- Visualizations revealed waves of infections corresponding to new variants and policy changes.  
+- Real-time tracking tools like this are vital for timely public health decisions.  
+- Challenges included inconsistent data reporting and the need for frequent updates.  
+- Future improvements could integrate vaccination data and mobility trends for richer analysis.
