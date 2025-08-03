@@ -1,0 +1,166 @@
+python
+class Smartphone:
+    def _init_(self, brand, model, storage, battery_life):
+        self.brand = brand
+        self.model = model
+        self.storage = storage  # in GB
+        self.battery_life = battery_life  # in hours
+
+    def make_call(self, number):
+        print(f"Calling {number} from {self.model}...")
+
+    def get_specs(self):
+        return f"{self.brand} {self.model} - {self.storage}GB, {self.battery_life}h battery"
+
+Example usage
+phone = Smartphone("Samsung", "Galaxy S21", 128, 24)
+print(phone.get_specs())
+phone.make_call("+2348012345678")
+python
+class Smartphone:
+    def _init_(self, brand, model, storage, battery_life, os, camera_mp):
+        self.brand = brand
+        self.model = model
+        self.storage = storage  # in GB
+        self.available_storage = storage
+        self.battery_life = battery_life  # in hours
+        self.os = os
+        self.camera_mp = camera_mp
+        self.battery_level = 100  # percent
+        self.installed_apps = []
+
+    def install_app(self, app_name, size):
+        if size > self.available_storage:
+            print(f"Not enough storage to tall {app_name}.")
+        else:
+            self.installed_apps.append(app_name)
+            self.available_storage -= size
+            print(f"{app_name} installed successfully.")
+
+    def charge(self):
+        self.battery_level = 100
+        print("Battery fully charged.")
+
+    def use(self, hours):
+        battery_usage = (hours / self.battery_life) * 100
+        if battery_usage > self.battery_level:
+            print("Battery too low. Please charge.")
+        else:
+            self.battery_level -= battery_usage
+            print(f"Used for {hours} hours. Battery now at {self.battery_level:.1f}%.")
+def take_photo(self):
+        print(f"Photo taken with {self.camera_mp}MP camera.")
+
+    def get_status(self):
+        return (
+            f"{self.brand} {self.model} | OS: {self.os}\n"
+            f"Storage: {self.storage}GB (Available: {self.available_storage}GB)\n"
+            f"Battery: {self.battery_level:.1f}% | Camera: {self.camera_mp}MP\n"
+            f"Apps: {', '.join(self.installed_apps) if self.installed_apps else 'None'}"
+Example usage
+phone = Smartphone("Samsung", "Galaxy S22", 128, 24, "Android", 50)
+phone.install_app("WhatsApp", 2)
+phone.use(3)
+phone.take_photo()
+print(phone.get_status())
+python
+class Smartphone:
+    def _init_(self, brand, model, storage, battery_life, os, camera_mp):
+        self.brand = brand
+        self.model = model
+        self.storage = storage
+        self.available_storage = storage
+        self.battery_life = battery_life
+        self.os = os
+        self.camera_mp = camera_mp
+        self.battery_level = 100
+        self.installed_apps = []
+
+    def get_info(self):
+        return (
+            f"{self.brand} {self.model} | OS: {self.os} | Storage: {self.storage}GB | "
+            f"Camera: {self.camera_mp}MP | Battery: {self.battery_life}hrs"
+        )
+
+Creating multiple smartphones with unique values
+phone1 = Smartphone("Samsung", "Galaxy S22", 128, 24, "Android", 50)
+phone2 = Smartphone("Apple", "iPhone 13", 256, 20, "iOS", 12)
+phone3 = Smartphone("Google", "Pixel 6", 128, 25, "Android", 50)
+
+Display info for each
+print(phone1.get_info())
+print(phone2.get_info())
+print(phone3.get_info())
+python
+class Smartphone:
+    def _init_(self, brand, model, storage, battery_life, os, camera_mp):
+        self.brand = brand
+        self.model = model
+        self.storage = storage
+        self._battery_level = 100  # Encapsulated attribute (protected)
+        self.battery_life = battery_life
+        self.os = os
+        self.camera_mp = camera_mp
+        self.installed_apps = []
+
+    def get_info(self):
+        return (
+            f"{self.brand} {self.model} | OS: {self.os} | Storage: {self.storage}GB | "
+            f"Camera: {self.camera_mp}MP | Battery Life: {self.battery_life}hrs"
+        )
+
+    def use_battery(self, hours):
+        """Decrease battery level but not below 0"""
+        self._battery_level = max(self._battery_level - hours * 10, 0)
+
+    def battery_status(self):
+        return f"Battery level: {self._battery_level}%"
+
+
+Subclasses with polymorphism on get_info()
+class Samsung(Smartphone):
+    def get_info(self):
+        return f"Samsung Device - {super().get_info()}"
+
+
+class Apple(Smartphone):
+    def get_info(self):
+        return f"Apple Device - {super().get_info()}"
+python
+class Animal:
+    def move(self):
+        print("The animal moves in its own way.")
+
+class Dog(Animal):
+    def move(self):
+        print("Dog runs 🐕")
+
+class Bird(Animal):
+    def move(self):
+        print("Bird flies 🦅")
+
+class Vehicle:
+    def move(self):
+        print("The vehicle moves in its own way.")
+
+class Car(Vehicle):
+    def move(self):
+        print("Car is driving 🚗")
+
+class Plane(Vehicle):
+    def move(self):
+        print("Plane is flying ✈️")
+
+List of different objects
+objects = [Dog(), Bird(), Car(), Plane()]
+
+for obj in objects:
+    obj.move()
+```
+
+*Output:*
+
+- Dog runs 🐕  
+- Bird flies 🦅  
+- Car is driving 🚗  
+- Plane is flying ✈️  
