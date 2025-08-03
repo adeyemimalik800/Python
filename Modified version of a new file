@@ -1,0 +1,25 @@
+python
+Read the original file
+with open("input.txt", "r") as infile:
+    content = infile.read()
+
+Modify the content (example: convert to uppercase)
+modified_content = content.upper()
+
+Write the modified content to a new file
+with open("modified_output.txt", "w") as outfile:
+    outfile.write(modified_content)
+
+print("Modified file 'modified_output.txt' created successfully.")
+python
+filename = input("Enter the name of the file to read: ")
+
+try:
+    with open(filename, "r") as file:
+        content = file.read()
+        print("File content:\n")
+        print(content)
+except FileNotFoundError:
+    print(f"Error: The file '{filename}' does not exist.")
+except IOError:
+    print(f"Error: Could not read the file '{filename}'.")
